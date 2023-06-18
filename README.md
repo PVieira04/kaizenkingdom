@@ -31,3 +31,46 @@ To ensure our decision resonates with our target audience, we will conduct marke
 By combining market feedback, personal preference, and the desired branding objectives, we can confidently select the name that best captures the essence of our educational journey and creates a lasting impression.
 
 Decision: to be determined.
+
+## Application of Product
+
+This is one way I can see the product working:
+
+1. Kaizen Kingdom Website:
+
+- Serve as the main platform for the project.
+- Admin users will have access to manage the system.
+
+2. Organization Application Process:
+
+- Organizations interested in joining Kaizen Kingdom will apply through the website.
+- Application requires payment of a subscription fee based on a tiered pricing system.
+- Higher-tier organizations will have access to more teacher and student accounts.
+
+3. Organization Setup:
+
+- Once approved, the organization needs to be set up within Kaizen Kingdom.
+Admin users can create teacher and student accounts for the organization.
+- An option to upload an excel spreadsheet for bulk account creation could be provided.
+- Alternatively, a 1-click download feature can generate an excel spreadsheet with login information for all users.
+
+4. Account Management:
+
+- Teacher accounts will have the ability to view and change passwords for students within their school.
+- Students will be able to view and change their own passwords.
+
+5. Organization Name Change:
+
+- Organizations can submit a name change request, subject to availability.
+- Name changes will be reflected throughout the organization.
+- Each organization will have an associated ID for identification purposes.
+
+6. Teacher Features:
+
+- Teachers can create syllabi and develop questions for assessments.
+- Consider the possibility of including programmable questions with randomized numbers and automatically generated answers.
+
+7. Authentication:
+
+- Implement authentication mechanisms to ensure different access levels for student, teacher, and admin users.
+- Each user type will have access to specific features and functionalities.
