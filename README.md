@@ -4,6 +4,12 @@ Welcome to Kaizen Kingdom! Our mission is to empower learners by providing a com
 
 Derived from the Japanese concept of continuous improvement, our project is built upon the belief that learning is the catalyst for personal growth and advancement. By cultivating a vibrant community of individuals who yearn to better themselves through knowledge, we establish a dynamic "kingdom" of like-minded learners.
 
+## User Stories
+
+I want my student users to have this kind of experience when they log on to Kaizen Kingdom.
+
+When the student lands on the main page, They can click on the login button, taking them to the login page. They will use their details to log in and will be welcomed by the courses they are currently enrolled on. A student can click on a course and they will be presented with the course page which include all modules. From there they can see their progress in all modules and click on a module to begin learning. Once they do, they will be taken to a page where they are shown details on the module, with what they will learn etc. Then they will be able to see some worked examples and then be presented with questions.
+
 ## Mascot
 
 Introducing a mascot to this project can serve as a powerful symbol for this educational initiative. Here is why I think having a mascot is a fantastic idea:
