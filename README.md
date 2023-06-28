@@ -6,6 +6,25 @@ Derived from the Japanese concept of continuous improvement, our project is buil
 
 ## User Stories
 
+In terms of user stories, there should be an overarching Theme which is divided into Epics, and further divided into User Stories. This section should consist of smaller user stories, divided by Themes and Epics. These user stories should represent a bite-sized increment, and should be prioritised and assigned to iterations. One iteration can take 1-4 weeks and can include the implementation of multiple increments.
+
+--
+
+User Story Templates
+
+As a [role], I can [capability], so that [received-benefit].
+
+In order to [receive-benefit] as a [role], I can [goal/desire].
+
+Examples:
+
+As a warehouse employee, I can select  the paper size on which to print  
+so that the printed label  size matches the parcel size.
+
+In order to check-out multiple items in one click as a user, I can add items to a shopping cart.
+
+--
+
 I want my student users to have this kind of experience when they log on to Kaizen Kingdom.
 
 When the student lands on the main page, They can click on the login button, taking them to the login page. They will use their details to log in and will be welcomed by the courses they are currently enrolled on. A student can click on a course and they will be presented with the course page which include all modules. From there they can see their progress in all modules and click on a module to begin learning. Once they do, they will be taken to a page where they are shown details on the module, with what they will learn etc. Then they will be able to see some worked examples and then be presented with questions.
