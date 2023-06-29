@@ -8,6 +8,8 @@ Derived from the Japanese concept of continuous improvement, our project is buil
 
 In terms of user stories, there should be an overarching Theme which is divided into Epics, and further divided into User Stories. This section should consist of smaller user stories, divided by Themes and Epics. These user stories should represent a bite-sized increment, and should be prioritised and assigned to iterations. One iteration can take 1-4 weeks and can include the implementation of multiple increments.
 
+Epics are large items that cannot fit into a single iteration, but can be broken down into user stories. Themes are a way to group together related Epics. For example, Theme: Account Management, Epic 1: User Profile, Epic 2: Sign-in, etc.
+
 --
 
 User Story Templates
