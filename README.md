@@ -134,7 +134,7 @@ Since Code Institute provide resources to learn the Django backend framework, it
 
 5. Community and Documentation: Django has a vibrant and active community, which means there is ample support and resources available when I encounter challenges or need guidance. The extensive documentation and numerous tutorials make it easier for me to learn and leverage Django's features effectively.
 
-6. Integration and Extensibility: Django seamlessly integrates with other popular technologies, frameworks, and libraries. Whether I need to integrate with frontend frameworks like React or Vue.js, utilize external APIs for additional functionality, or leverage third-party Django packages, the ecosystem around Django is rich and provides the flexibility to extend my LMS system as needed.
+6. Integration and Extensibility: Django seamlessly integrates with other popular technologies, frameworks, and libraries. Whether I need to integrate with frontend libraries or frameworks like React or Next.js, utilize external APIs for additional functionality, or leverage third-party Django packages, the ecosystem around Django is rich and provides the flexibility to extend my LMS system as needed.
 
 7. Mature and Battle-Tested: Django has been around for many years and has been extensively used in production by numerous projects and organizations. Its maturity and battle-tested nature provide me with confidence in its stability, performance, and reliability for my LMS application.
 
