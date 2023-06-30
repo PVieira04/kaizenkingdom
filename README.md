@@ -159,3 +159,13 @@ I have decided to employ the React frontend framework for my Learning Management
 8. Responsive UI with React Native: If I decide to extend my LMS to mobile platforms in the future, React Native, a framework built on top of React, allows for the development of native mobile applications using JavaScript. This potential for code sharing between the web and mobile platforms can save time and effort in maintaining consistent functionality and branding across different devices.
 
 In conclusion, my choice to utilize the React frontend framework for my LMS project is driven by its component-based architecture, efficient rendering, unidirectional data flow, extensive ecosystem and community support, reusability, code maintainability, declarative syntax, support for SPAs, and the potential for mobile application development through React Native. These factors make React an excellent choice for building the user interface of my LMS, ensuring an engaging, interactive, and scalable learning experience for my users.
+
+## Project Milestones
+
+1. CRUD functionality where cards can be read, edited, created and deleted.
+
+2. Implement a sign in feature for teachers where one can only have CRUD access when signed in. Non-users can only see the home page.
+
+3. Create student users that only have read permissions.
+
+4. Organise the cards into a hierarchy in terms of subject, unit, topic etc.
