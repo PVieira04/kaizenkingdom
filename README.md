@@ -169,3 +169,25 @@ In conclusion, my choice to utilize the React frontend framework for my LMS proj
 3. Create student users that only have read permissions.
 
 4. Organise the cards into a hierarchy in terms of subject, unit, topic etc.
+
+## Project Themes and Epics
+
+1. User Experience
+    - Responsive Design for Mobile Devices
+    - Customisable User Profiles (e.g. user picture)
+    - Progress Tracking
+    - Achievement Badges
+
+2. Security and Authentication
+    - Secure User Registration and Login
+    - Password Reset Functionaility
+    - User Roles and Permissions
+
+3. Content Management
+    - Course Creation
+    - Course Update Feature
+    - File Management
+
+4. Reporting and Analytics
+    - Track Learner Progress
+    - Teachers Able to View Student Progress
