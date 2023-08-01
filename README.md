@@ -191,3 +191,16 @@ In conclusion, my choice to utilize the React frontend framework for my LMS proj
 4. Reporting and Analytics
     - Track Learner Progress
     - Teachers Able to View Student Progress
+
+
+## Planning
+
+### Strategy
+
+### Scope
+
+### Structure
+
+### Skeleton
+
+### Surface
