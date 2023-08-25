@@ -29,7 +29,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['kaizen-kingdom.herokuapp.com', '8000-pvieira04-kaizenkingdom-of13ftxz3w9.ws-us104.gitpod.io']
+ALLOWED_HOSTS = ['kaizen-kingdom-7933fecd6f94.herokuapp.com', '8000-pvieira04-kaizenkingdom-of13ftxz3w9.ws-us104.gitpod.io']
 
 
 # Application definition
