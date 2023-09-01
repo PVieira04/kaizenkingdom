@@ -9,8 +9,8 @@ assignees: PVieira04
 
 EPIC: _epic_
 
-As a **role**, I can **capability** so that **received_benefit**
+As a **role**, I can **capability** so that **received_benefit**.
 
-**Acceptance_Criteria""
+**Acceptance Criteria**
 
 **Tasks**
