@@ -39,3 +39,18 @@ class Topic(models.Model):
     
     def __str__(self):
         return f"{self.unit.course.title} - {self.unit.title} - Topic {self.number}: {self.title}"
+
+class QuizQuestion(models.Model):
+    topic = models.ForeignKey(Topic, on_delete=models.CASCADE)
+    question_text = models.TextField()
+
+    class Meta:
+        unique_together = ('topic', 'questionText')
+
+class QuizOption(models.Model):
+    question = models.ForeignKey(QuizQuestion, on_delete=models.CASCADE)
+    option_text = models.CharField(max_length=200)
+    is_correct = models.BooleanField(default=False)
+
+    class Meta:
+        unique_together = ('question', 'optionText')
