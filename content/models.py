@@ -7,6 +7,7 @@ STATUS = ((0, "Draft"), (1, "Published"))
 
 class Course(models.Model):
     title = models.CharField(max_length=200, unique=True)
+    slug = models.SlugField(max_length=200, unique=True, default='')
     author = models.ForeignKey(User, on_delete=models.CASCADE, related_name="courses")
     description = models.TextField()
 
@@ -39,7 +40,7 @@ class Topic(models.Model):
         ordering = ['number']
     
     def __str__(self):
-        return f"{self.unit.course.title} - {self.unit.title} - Topic {self.number}: {self.title}"
+        return f"{self.unit.course.title} - Unit {self.unit.number}: {self.unit.title} - Topic {self.number}: {self.title}"
 
 class QuizQuestion(models.Model):
     topic = models.ForeignKey(Topic, on_delete=models.CASCADE)
@@ -52,6 +53,8 @@ class QuizQuestion(models.Model):
 
     class Meta:
         unique_together = ('topic', 'question_text')
+        verbose_name = 'Quiz Question'
+        verbose_name_plural = 'Quiz Questions'
 
     def __str__(self):
         return self.question_text
