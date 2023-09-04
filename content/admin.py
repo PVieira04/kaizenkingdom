@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django_summernote.admin import SummernoteModelAdmin
-from .models import Course, Unit, Topic, QuizQuestion, QuizOption
+from .models import Course, Unit, Topic, QuizQuestion
 
 @admin.register(Course)
 class CourseAdmin(SummernoteModelAdmin):
@@ -17,7 +17,3 @@ class TopicAdmin(SummernoteModelAdmin):
 @admin.register(QuizQuestion)
 class QuizQuestionAdmin(SummernoteModelAdmin):
     summernote_fields = ('question_text')
-
-@admin.register(QuizOption)
-class QuizOptionAdmin(SummernoteModelAdmin):
-    summernote_fields = ('option_text')

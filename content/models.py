@@ -1,3 +1,4 @@
+from django.core.exceptions import ValidationError
 from django.db import models
 from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
@@ -43,14 +44,24 @@ class Topic(models.Model):
 class QuizQuestion(models.Model):
     topic = models.ForeignKey(Topic, on_delete=models.CASCADE)
     question_text = models.TextField()
+    option_1 = models.CharField(max_length=200, blank=True, null=True)
+    option_2 = models.CharField(max_length=200, blank=True, null=True)
+    option_3 = models.CharField(max_length=200, blank=True, null=True)
+    option_4 = models.CharField(max_length=200, blank=True, null=True)
+    correct_option = models.PositiveSmallIntegerField(choices=[(1, 'Option 1'), (2, 'Option 2'), (3, 'Option 3'), (4, 'Option 4')], blank=True, null=True)
 
     class Meta:
-        unique_together = ('topic', 'questionText')
+        unique_together = ('topic', 'question_text')
 
-class QuizOption(models.Model):
-    question = models.ForeignKey(QuizQuestion, on_delete=models.CASCADE)
-    option_text = models.CharField(max_length=200)
-    is_correct = models.BooleanField(default=False)
+    def __str__(self):
+        return self.question_text
 
-    class Meta:
-        unique_together = ('question', 'optionText')
+    def clean(self):
+        options = [self.option_1, self.option_2, self.option_3, self.option_4]
+        unique_options = list(filter(None, set(options)))
+        if len(unique_options) < len(options):
+            raise ValidationError("Options 1 - 4 must be unique.")
+
+    def save(self, *args, **kwargs):
+        self.full_clean()
+        super().save(*args, **kwargs)
