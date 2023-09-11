@@ -1,0 +1,585 @@
+[
+    {
+        "model": "content.course",
+        "pk": 2,
+        "fields": {
+            "title": "Mathematics A-Level C4 Edexcel",
+            "slug": "mathematics-a-level-c4-edexcel",
+            "author": 1,
+            "description": "<p>This course covers the content in the C4 module of the A -Level Mathematics qualification in the UK.</p>"
+        }
+    },
+    {
+        "model": "content.course",
+        "pk": 3,
+        "fields": {
+            "title": "Mathematics A-Level C3 Edexcel",
+            "slug": "mathematics-a-level-c3-edexcel",
+            "author": 1,
+            "description": "<p>This coveres the C3 module of the Edexcel Maths A-Level qualification.</p>"
+        }
+    },
+    {
+        "model": "content.unit",
+        "pk": 2,
+        "fields": {
+            "title": "Partial Fractions",
+            "slug": "partial-fractions",
+            "course": 2,
+            "number": 1,
+            "description": "Converting a complex fraction into a sum of simpler ones has many uses. You will meet some of these uses later in the C4 course when you study both the binomial expansion and methods of integration."
+        }
+    },
+    {
+        "model": "content.unit",
+        "pk": 3,
+        "fields": {
+            "title": "Coodinate Geometry",
+            "slug": "coordinate-geometry",
+            "course": 2,
+            "number": 2,
+            "description": "<p>Some very simple-looking curves are very difficult to describe by a Cartesian equation, that is, an equation linking <i>x</i>&nbsp;and <i>y</i>.</p><p>Parametric equations can be used to produce some very beautiful and intricate curves. This chapter will introduce you to the idea which will be studied further in Unit 4 of this course.</p>"
+        }
+    },
+    {
+        "model": "content.unit",
+        "pk": 4,
+        "fields": {
+            "title": "The BiFnomial Expansion",
+            "slug": "the-binomial-expansion",
+            "course": 2,
+            "number": 3,
+            "description": "<p>The binomial expansion can be used to give a polynomial approximation to a more complex function.</p><p>The mathematician said to have discovered the binomial expansion some 1000 years ago is Omar Khayyam.</p>"
+        }
+    },
+    {
+        "model": "content.unit",
+        "pk": 5,
+        "fields": {
+            "title": "Differentiation",
+            "slug": "differentiation",
+            "course": 2,
+            "number": 4,
+            "description": "<p>The melting of a snowman can be modelled by a differential equation.</p>"
+        }
+    },
+    {
+        "model": "content.unit",
+        "pk": 6,
+        "fields": {
+            "title": "Vectors",
+            "slug": "vectors",
+            "course": 2,
+            "number": 5,
+            "description": "<p>Vectors are important when studying science and engineering to higher levels. They can be used to represent any quantity that has both magnitude and a direction.</p>"
+        }
+    },
+    {
+        "model": "content.unit",
+        "pk": 7,
+        "fields": {
+            "title": "Integration",
+            "slug": "integration",
+            "course": 2,
+            "number": 6,
+            "description": "<p>The ability to integrate adn solve differential equations has many fascinating used in the world. Did you know that Forensic Investigators can use Newton's Law of Cooling to help solve cases?</p>"
+        }
+    },
+    {
+        "model": "content.unit",
+        "pk": 8,
+        "fields": {
+            "title": "Algebraic Fractions",
+            "slug": "algebraic-fractions",
+            "course": 3,
+            "number": 1,
+            "description": "<p>Two resistors in parallel with seperate resistances have a total resistance and can be expressed using algebraic fractions. After completing this unit, you should be able to prove that there is an easier method of finding the total resistance instead of using seperate fractions.</p>"
+        }
+    },
+    {
+        "model": "content.unit",
+        "pk": 9,
+        "fields": {
+            "title": "Functions",
+            "slug": "functions",
+            "course": 3,
+            "number": 2,
+            "description": "<p>There are many examples of functions in real life. One interesting case involves electricity charges where you are charged different amounts per unit dependent upon how many units you use.</p>"
+        }
+    },
+    {
+        "model": "content.topic",
+        "pk": 2,
+        "fields": {
+            "unit": 2,
+            "title": "Simple Algebraic Fractions",
+            "number": 1,
+            "slug": "simple-algebraic-fractions",
+            "content": "<p>You can add (or subtract) two or more simple fractions as long as the denominators are the same.</p>"
+        }
+    },
+    {
+        "model": "content.topic",
+        "pk": 3,
+        "fields": {
+            "unit": 2,
+            "title": "Two Linear Factors",
+            "number": 2,
+            "slug": "two-linear-factors",
+            "content": "<p>You can split a fraction with two lineal factors in the denominator into partial fractions.</p>"
+        }
+    },
+    {
+        "model": "content.topic",
+        "pk": 4,
+        "fields": {
+            "unit": 2,
+            "title": "More than Two Linear Factors",
+            "number": 3,
+            "slug": "more-than-two-linear-factors",
+            "content": "<p>You can also split fractions that have more than two linear factors in the denominator into partial fractions.</p>"
+        }
+    },
+    {
+        "model": "content.topic",
+        "pk": 5,
+        "fields": {
+            "unit": 2,
+            "title": "Repeated Linear Factors",
+            "number": 4,
+            "slug": "repeated-linear-factors",
+            "content": "<p>You can express a fraction that has rrepeated linear factors in its denominator as a partial fraction.</p>"
+        }
+    },
+    {
+        "model": "content.topic",
+        "pk": 6,
+        "fields": {
+            "unit": 2,
+            "title": "Improper Fractions",
+            "number": 5,
+            "slug": "improper-fractions",
+            "content": "<p>You can split improper fractions into partial fractions by dividing the numerator by the denominator.</p>"
+        }
+    },
+    {
+        "model": "content.topic",
+        "pk": 7,
+        "fields": {
+            "unit": 3,
+            "title": "Using Parametric Equations",
+            "number": 1,
+            "slug": "using-parametric-equations",
+            "content": "<p>You can define the coordinates of a point on a curve using parametric equations. In parametric equations, coordinates x and y are expressed as x = f(t) and y = g(t) where the variable t is a parameter.</p>"
+        }
+    },
+    {
+        "model": "content.topic",
+        "pk": 8,
+        "fields": {
+            "unit": 3,
+            "title": "Solving Parametric Equations",
+            "number": 2,
+            "slug": "solving-parametric-equations",
+            "content": "<p>You need to be able to use parametric equations to solve problems in coordinate geometry.</p>"
+        }
+    },
+    {
+        "model": "content.topic",
+        "pk": 9,
+        "fields": {
+            "unit": 3,
+            "title": "Convert Parametrics into a Cartesian",
+            "number": 3,
+            "slug": "convert-parametrics-into-a-cartesian",
+            "content": "<p>You need to be able to convert parametric equations into a Cartesian equation.</p>"
+        }
+    },
+    {
+        "model": "content.topic",
+        "pk": 10,
+        "fields": {
+            "unit": 3,
+            "title": "Area Under a Curve",
+            "number": 4,
+            "slug": "area-under-a-curve",
+            "content": "<p>You need to be able to find the area under a curve given by parametric equations.</p>"
+        }
+    },
+    {
+        "model": "content.topic",
+        "pk": 11,
+        "fields": {
+            "unit": 4,
+            "title": "Using the Binomial Expansion",
+            "number": 1,
+            "slug": "using-the-binomial-expansion",
+            "content": "<p>When 'n' is a pasitive integer, the binomial expansion is finite and exact.</p>"
+        }
+    },
+    {
+        "model": "content.topic",
+        "pk": 12,
+        "fields": {
+            "unit": 4,
+            "title": "Taking out a Factor",
+            "number": 2,
+            "slug": "taking-out-a-factor",
+            "content": "<p>You can use the simple binomial expansion to expand a complex one for any constants by taking out 'a' as a factor.</p>"
+        }
+    },
+    {
+        "model": "content.topic",
+        "pk": 13,
+        "fields": {
+            "unit": 4,
+            "title": "Using Partial Fractions",
+            "number": 3,
+            "slug": "using-partial-fractions",
+            "content": "<p>You can use partial fractions to simplify the expansions of many more difficult expressions.</p>"
+        }
+    },
+    {
+        "model": "content.topic",
+        "pk": 14,
+        "fields": {
+            "unit": 5,
+            "title": "Gradient of Parametrics",
+            "number": 1,
+            "slug": "gradient-of-parametrics",
+            "content": "<p>You can find the gradient of a curve given in parametric coordinates.</p>"
+        }
+    },
+    {
+        "model": "content.topic",
+        "pk": 15,
+        "fields": {
+            "unit": 5,
+            "title": "Implicit Relations",
+            "number": 2,
+            "slug": "implicit-relations",
+            "content": "<p>You can differentiate relations which are implicit, such as cos(x+y) = sin(y).</p>"
+        }
+    },
+    {
+        "model": "content.topic",
+        "pk": 16,
+        "fields": {
+            "unit": 5,
+            "title": "General Power Function",
+            "number": 3,
+            "slug": "general-power-function",
+            "content": "<p>You can differentiate the general power function, a<sup>x</sup>, where a is constant.</p>"
+        }
+    },
+    {
+        "model": "content.topic",
+        "pk": 17,
+        "fields": {
+            "unit": 5,
+            "title": "Related Rates of Change",
+            "number": 4,
+            "slug": "related-rates-of-change",
+            "content": "<p>You can relate one rate of change to another.</p>"
+        }
+    },
+    {
+        "model": "content.topic",
+        "pk": 18,
+        "fields": {
+            "unit": 5,
+            "title": "Forming Differential Equations",
+            "number": 5,
+            "slug": "forming-differential-equations",
+            "content": "<p>You can set up a differential equation from information given in context.</p>"
+        }
+    },
+    {
+        "model": "content.topic",
+        "pk": 19,
+        "fields": {
+            "unit": 6,
+            "title": "Scalar vs Vector",
+            "number": 1,
+            "slug": "scalar-vs-vector",
+            "content": "<p>You need to know the difference between a scalar and a vector, and how to write down vectors and draw vector diagrams.</p>"
+        }
+    },
+    {
+        "model": "content.topic",
+        "pk": 20,
+        "fields": {
+            "unit": 6,
+            "title": "Vector Arithmetic",
+            "number": 2,
+            "slug": "vector-arithmetic",
+            "content": "<p>You need to be able to perform simple vector arithmetic, and to know the definition of a unit vector.</p>"
+        }
+    },
+    {
+        "model": "content.topic",
+        "pk": 21,
+        "fields": {
+            "unit": 6,
+            "title": "Describing Position",
+            "number": 3,
+            "slug": "describing-position",
+            "content": "<p>You need to be able to use vectors to describe the position of a point in two or three dimensions.</p>"
+        }
+    },
+    {
+        "model": "content.topic",
+        "pk": 22,
+        "fields": {
+            "unit": 6,
+            "title": "Cartesian Vector Components",
+            "number": 4,
+            "slug": "cartesian-vector-components",
+            "content": "<p>You need to know how to write down and use the Cartesian components of a vector in two dimensions.</p>"
+        }
+    },
+    {
+        "model": "content.topic",
+        "pk": 23,
+        "fields": {
+            "unit": 6,
+            "title": "Cartesian Coordinates in 3D",
+            "number": 5,
+            "slug": "cartesian-coordinates-in-3d",
+            "content": "<p>You need to know how to use Cartesian coordinates in three dimentions.</p>"
+        }
+    },
+    {
+        "model": "content.topic",
+        "pk": 24,
+        "fields": {
+            "unit": 6,
+            "title": "Extending 2D Vector Results to 3D",
+            "number": 6,
+            "slug": "extending-2d-vector-results-to-3d",
+            "content": "<p>You can extend the two-dimensional vector results to three dimensions, using k as the unit vector parallel to the z-axis, in the direction of z increasing.</p>"
+        }
+    },
+    {
+        "model": "content.topic",
+        "pk": 25,
+        "fields": {
+            "unit": 6,
+            "title": "Using Scalar Product to find the Angle",
+            "number": 7,
+            "slug": "using-scalar-product-to-find-the-angle",
+            "content": "<p>You need to know the definition of the scalar product of two vectors (in either two or three dimentions), and how it can be used to find the angle between two vectors.</p>"
+        }
+    },
+    {
+        "model": "content.topic",
+        "pk": 26,
+        "fields": {
+            "unit": 6,
+            "title": "Vector Equations",
+            "number": 8,
+            "slug": "vector-equations",
+            "content": "<p>You need to know how to write the equation of a straight line in vector form.</p>"
+        }
+    },
+    {
+        "model": "content.topic",
+        "pk": 27,
+        "fields": {
+            "unit": 6,
+            "title": "Intersecting Lines",
+            "number": 9,
+            "slug": "intersecting-lines",
+            "content": "<p>You need to be able to determine whether two given straight lines intersect.<br></p>"
+        }
+    },
+    {
+        "model": "content.topic",
+        "pk": 28,
+        "fields": {
+            "unit": 6,
+            "title": "Angle Between Two Straight Lines",
+            "number": 10,
+            "slug": "angle-between-two-straight-lines",
+            "content": "<p>You need to be able to calculate the angle between two straight lines.</p>"
+        }
+    },
+    {
+        "model": "content.topic",
+        "pk": 29,
+        "fields": {
+            "unit": 7,
+            "title": "Standard Functions",
+            "number": 1,
+            "slug": "standard-functions",
+            "content": "<p>You need to be able to integrate standard functions.</p>"
+        }
+    },
+    {
+        "model": "content.topic",
+        "pk": 30,
+        "fields": {
+            "unit": 7,
+            "title": "Reverse Chain Rule",
+            "number": 2,
+            "slug": "reverse-chain-rule",
+            "content": "<p>You can integrate some functions using the reverse of the chain rule.</p>"
+        }
+    },
+    {
+        "model": "content.topic",
+        "pk": 31,
+        "fields": {
+            "unit": 7,
+            "title": "Trigonometric Identities",
+            "number": 3,
+            "slug": "trigonometric-identities",
+            "content": "<p>You can use trigonometric identities in integration.</p>"
+        }
+    },
+    {
+        "model": "content.topic",
+        "pk": 32,
+        "fields": {
+            "unit": 7,
+            "title": "Partial Fractions",
+            "number": 4,
+            "slug": "partial-fractions",
+            "content": "<p>You can use partial fractions to integrate experssions.</p>"
+        }
+    },
+    {
+        "model": "content.topic",
+        "pk": 33,
+        "fields": {
+            "unit": 7,
+            "title": "Standard Patterns",
+            "number": 5,
+            "slug": "standard-patterns",
+            "content": "<p>You can use standard patterns to integrate some expressions.</p>"
+        }
+    },
+    {
+        "model": "content.topic",
+        "pk": 34,
+        "fields": {
+            "unit": 7,
+            "title": "Substitution",
+            "number": 6,
+            "slug": "substitution",
+            "content": "<p>Sometimes you can simplify an integral by changing the variable. This process is similar to using the chain rule in differentiation and is called integration by substitution.</p>"
+        }
+    },
+    {
+        "model": "content.topic",
+        "pk": 35,
+        "fields": {
+            "unit": 7,
+            "title": "Integration by Parts",
+            "number": 7,
+            "slug": "by-parts",
+            "content": "<p>You can use integration by parts to integrate some expressions.</p>"
+        }
+    },
+    {
+        "model": "content.topic",
+        "pk": 36,
+        "fields": {
+            "unit": 7,
+            "title": "Trapezium Rule",
+            "number": 8,
+            "slug": "trapezium-rule",
+            "content": "<p>You can use numerical integration.</p>"
+        }
+    },
+    {
+        "model": "content.topic",
+        "pk": 37,
+        "fields": {
+            "unit": 7,
+            "title": "Area and Volume",
+            "number": 9,
+            "slug": "area-and-volume",
+            "content": "<p>You can use integration to find areas and volumes.</p>"
+        }
+    },
+    {
+        "model": "content.topic",
+        "pk": 38,
+        "fields": {
+            "unit": 7,
+            "title": "Solve Differential Equations",
+            "number": 10,
+            "slug": "solve-differential-equations",
+            "content": "<p>You can use integration to solve differential equations.</p>"
+        }
+    },
+    {
+        "model": "content.topic",
+        "pk": 39,
+        "fields": {
+            "unit": 7,
+            "title": "Differential Equations in Context",
+            "number": 11,
+            "slug": "differential-equations-in-context",
+            "content": "<p>Sometimes the differential equation will arise out of a context and the solution may need interpreting in terms of that context.</p>"
+        }
+    },
+    {
+        "model": "content.topic",
+        "pk": 40,
+        "fields": {
+            "unit": 8,
+            "title": "Cancelling Common Factors",
+            "number": 1,
+            "slug": "cancelling-common-factors",
+            "content": "<p>You can treat algebraic fractions in exactly the same way as numerican ones. You can cancel them down by finding factors that are common to both the numerator and the denominator.</p>"
+        }
+    },
+    {
+        "model": "content.topic",
+        "pk": 41,
+        "fields": {
+            "unit": 8,
+            "title": "Multiplying Fractions",
+            "number": 2,
+            "slug": "multiplying-fractions",
+            "content": "<p>You multiply fractions together by finding the product of the numerator and dividing by the product of the denominator.</p>"
+        }
+    },
+    {
+        "model": "content.topic",
+        "pk": 42,
+        "fields": {
+            "unit": 9,
+            "title": "Mappings",
+            "number": 1,
+            "slug": "mappings",
+            "content": "<p>A mapping transforms one set of numbers into a different set of number. The mapping can be described in words or through an algebraic equation. It can also be represented by a Cartesian graph.<br></p>"
+        }
+    },
+    {
+        "model": "content.topic",
+        "pk": 43,
+        "fields": {
+            "unit": 9,
+            "title": "Functions as Mappings",
+            "number": 2,
+            "slug": "functions-as-mappings",
+            "content": "<p>A function is a special mapping such that every element of set A (the domain) is mapped to exactly one element of set B (the range).</p>"
+        }
+    },
+    {
+        "model": "content.quizquestion",
+        "pk": 3,
+        "fields": {
+            "topic": 40,
+            "question_text": "<p>this is a question</p>",
+            "option_1": "first",
+            "option_2": "second",
+            "option_3": "third",
+            "option_4": "fourth",
+            "correct_option": 2
+        }
+    }
+]
