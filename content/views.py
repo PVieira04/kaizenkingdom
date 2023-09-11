@@ -9,13 +9,16 @@ class CourseList(generic.ListView):
 
 class CourseDetail(View):
     def get(self, request, slug, *args, **kwargs):
-        queryset = Course.objects
-        course = get_object_or_404(queryset, slug=slug)
+        course = Course.objects.get(slug=slug)
+        courses = Course.objects.all()
+        units = Unit.objects.filter(course__id=course.id)
         return render(
             request,
             "course_detail.html",
             {
-                "course": course
+                "course": course,
+                "units": units,
+                "items": list(courses) + list(units)
             }
         )
 

@@ -26,7 +26,7 @@
     <div class="row">
         <div class="col card mb-4  mt-3 left  top">
             <div class="card-body">
-                {{ course.description }}
+                {{ course.description | safe }}
                 <!-- Use the | safe filter inside the template tags -->
                 <p class="card-text "></p>
                 <div class="row">
@@ -51,34 +51,7 @@
             <hr>
         </div>
     </div>
-    <div class="row">
-        <div class="col-md-8 card mb-4  mt-3 ">
-            <h3>Units</h3>
-            <div class="card-body">
-                <!-- We want a for loop inside the tags to iterate through each comment in comments -->
-                
-                <div class="comments" style="padding: 10px;">
-                    <p class="font-weight-bold">
-                        <!-- The commenter's name goes here. Check the model if you're not sure what that is -->
-                        
-                        <span class=" text-muted font-weight-normal">
-                            <!-- The comment's created date goes here -->
-                            
-                        </span>
-                    </p>
-                    <!-- The body of the comment goes before the | -->
-                    
-                </div>
-                <!-- Our for loop ends here -->
-                
-            </div>
-        </div>
-        <div class="col-md-4 card mb-4  mt-3 ">
-            <div class="card-body">
-                <!-- For later -->
-            </div>
-        </div>
-    </div>
+    {% include 'unit_list.html' %}
 </div>
 
 {% endblock content %}
