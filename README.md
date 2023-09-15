@@ -1,5 +1,7 @@
 # Kaizen Kingdom
 
+Website now [LIVE](https://kaizen-kingdom-7933fecd6f94.herokuapp.com/)! Hosted on Heroku.
+
 Welcome to Kaizen Kingdom! Our mission is to empower learners by providing a comprehensive and user-friendly Learning Management System. With our platform, you can explore and master a wide range of subjects, unlocking your potential to learn anything you desire. Join us on this exciting journey of knowledge and growth!
 
 Derived from the Japanese concept of continuous improvement, our project is built upon the belief that learning is the catalyst for personal growth and advancement. By cultivating a vibrant community of individuals who yearn to better themselves through knowledge, we establish a dynamic "kingdom" of like-minded learners.
