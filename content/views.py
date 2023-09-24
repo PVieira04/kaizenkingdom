@@ -88,3 +88,15 @@ class EditTopic(View):
             "topic" : topic,
         }
         return render(request, 'edit_topic.html', context)
+
+class DeleteTopic(View):
+    def get(self, request, course_slug, unit_slug, topic_slug):
+        # Fetch the topic to be deleted and display a confirmation page
+        topic = get_object_or_404(Topic, slug=topic_slug)
+        return render(request, 'delete_topic.html', {'topic': topic})
+
+    def post(self, request, course_slug, unit_slug, topic_slug):
+        # Perform the deletion of the topic
+        topic = get_object_or_404(Topic, slug=topic_slug)
+        topic.delete()
+        return redirect('unit_detail', course_slug=course_slug, unit_slug=unit_slug)

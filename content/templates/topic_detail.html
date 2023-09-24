@@ -2,6 +2,8 @@
 
 {% block content %}
     <h1>{{ topic.title }}</h1>
-    <a href="{% url 'edit_topic' course_slug=course.slug unit_slug=unit.slug topic_slug=topic.slug %}">Edit this topic</a><br>
+    <a href="{% url 'edit_topic' course_slug=course.slug unit_slug=unit.slug topic_slug=topic.slug %}" class="btn btn-primary">Edit</a>
+    <a href="{% url 'delete_topic' course_slug=topic.unit.course.slug unit_slug=topic.unit.slug topic_slug=topic.slug %}" class="btn btn-danger">Delete</a>
+<br>
     {{ topic.content }}
 {% endblock %}
