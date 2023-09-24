@@ -8,8 +8,8 @@
     
     {{ form.as_p }}
     
-    <button type="submit">Save Changes</button>
+    <button type="submit" class="btn btn-success">Save</button>
   </form>
   
-  <a href="{% url 'topic_detail' course_slug=topic.unit.course.slug unit_slug=topic.unit.slug topic_slug=topic.slug %}">Cancel</a>
+  <a href="{% url 'topic_detail' course_slug=topic.unit.course.slug unit_slug=topic.unit.slug topic_slug=topic.slug %}" class="btn btn-secondary">Cancel</a>
 {% endblock %}
