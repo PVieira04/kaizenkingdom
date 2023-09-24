@@ -2,5 +2,6 @@
 
 {% block content %}
     <h1>{{ topic.title }}</h1>
+    <a href="{% url 'edit_topic' course_slug=course.slug unit_slug=unit.slug topic_slug=topic.slug %}">Edit this topic</a><br>
     {{ topic.content }}
 {% endblock %}
