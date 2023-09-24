@@ -3,11 +3,11 @@
         <h3>Units</h3>
         <div class="card-body">
             <!-- We want a for loop inside the tags to iterate through each comment in comments -->
-            {% for item in items %}
+            {% for unit in units %}
             <div class="comments" style="padding: 10px;">
                 <p class="font-weight-bold">
                     <!-- The commenter's name goes here. Check the model if you're not sure what that is -->
-                    <a href="#">{{ item.title }}</a>
+                    <a href="{% url 'unit_detail' course_slug=course.slug unit_slug=unit.slug %}">{{ unit.title }}</a>
                     <span class=" text-muted font-weight-normal">
                         <!-- The comment's created date goes here -->
                         

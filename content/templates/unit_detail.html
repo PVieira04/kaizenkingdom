@@ -1,0 +1,7 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>{{ unit.title }}</h1>
+    <p>{{ unit.description }}</p>
+    {% include 'topic_list.html' %}
+{% endblock %}
