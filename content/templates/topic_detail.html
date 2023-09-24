@@ -14,6 +14,6 @@
     </div>
     {% endif %}
     <br>
-    {{ topic.content }}
+    {{ topic.content | safe }}
 </div>
 {% endblock %}
