@@ -27,7 +27,7 @@ TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.environ.get('DEBUG', False)
 
 ALLOWED_HOSTS = ['kaizen-kingdom-7933fecd6f94.herokuapp.com', '8000-pvieira04-kaizenkingdom-of13ftxz3w9.ws-eu104.gitpod.io']
 
