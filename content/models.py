@@ -1,5 +1,6 @@
 from django.core.exceptions import ValidationError
 from django.db import models
+from django.utils.text import slugify
 from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
 
@@ -10,6 +11,12 @@ class Course(models.Model):
     slug = models.SlugField(max_length=200, unique=True, default='')
     author = models.ForeignKey(User, on_delete=models.CASCADE, related_name="courses")
     description = models.TextField()
+
+    def save(self, *args, **kwargs):
+        # Generate a slug from the title if it's not provided
+        if not self.slug:
+            self.slug = slugify(self.title)
+        super().save(*args, **kwargs)
 
     def __str__(self):
         return f"{self.title}"

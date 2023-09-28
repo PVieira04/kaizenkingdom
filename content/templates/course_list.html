@@ -1,10 +1,9 @@
 {% extends "base.html" %}
 
 {% block content %}
-
 <div class="container-fluid">
+    {% include 'includes/create_button.html' %}
     <div class="row">
-
         <!-- Course Entries Column -->
         <div class="col-12 mt-3 left">
             <div class="row">
@@ -16,6 +15,7 @@
                                 <h2 class="card-title">{{ course.title }}</h2>
                             </a>
                         </div>
+                        {% include 'includes/edit_button.html' %}
                     </div>
                 </div>
             {% if forloop.counter|divisibleby:3 %}

@@ -1,13 +1,16 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views import generic, View
 from django.urls import reverse
+from random import sample
 from .models import Course, Unit, Topic, QuizQuestion
-from .forms import EditTopicForm
+from .forms import CreateCourseForm, EditTopicForm
+from profiles.models import CustomUser
 
 class CourseList(generic.ListView):
     model = Course
     template_name = 'course_list.html'
     paginate_by = 6
+    extra_context = {"form_name": "Course"}
 
 class CourseDetail(View):
     def get(self, request, course_slug, *args, **kwargs):
@@ -19,6 +22,29 @@ class CourseDetail(View):
             'units' : units,
         }
         return render(request, "course_detail.html", context)
+
+class CreateCourse(View):
+    def get(self, request):
+        if request.user.customuser.account_type == 'teacher':
+            form = CreateCourseForm()
+            context = {
+                'form' : form,
+            }
+            return render(request, 'create_course.html', context)
+        else: return redirect('course_list')
+    
+    def post(self, request):
+        form = CreateCourseForm(request.POST)
+        if form.is_valid():
+            course = form.save(commit=False)
+            course.author = request.user
+            course.save()
+            return redirect('course_detail', course_slug=course.slug)
+        else:
+            context = {
+                'form' : form,
+            }
+            return render(request, 'create_course.html', context)
 
 class UnitList(generic.ListView):
     model = Unit
@@ -100,3 +126,15 @@ class DeleteTopic(View):
         topic = get_object_or_404(Topic, slug=topic_slug)
         topic.delete()
         return redirect('unit_detail', course_slug=course_slug, unit_slug=unit_slug)
+
+class Quiz(View):
+    def get(self, request, course_slug, unit_slug, topic_slug):
+        questions = QuizQuestion.objects.filter(topic__slug=topic_slug)
+
+        random_questions = sample(list(questions), min(len(questions), 5))
+
+        context = {
+            "questions" : random_questions,
+        }
+
+        return render(request, "quiz.html", context)

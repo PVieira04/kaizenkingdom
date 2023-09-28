@@ -1,0 +1,3 @@
+{% if request.user.customuser.account_type == 'teacher' %}
+    <a class="btn btn-primary" href="{% url 'create_course' %}">Create {{ form_name }}</a>
+{% endif %}
