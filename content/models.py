@@ -14,8 +14,7 @@ class Course(models.Model):
 
     def save(self, *args, **kwargs):
         # Generate a slug from the title if it's not provided
-        if not self.slug:
-            self.slug = slugify(self.title)
+        self.slug = slugify(self.title)
         super().save(*args, **kwargs)
 
     def __str__(self):

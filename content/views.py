@@ -3,7 +3,7 @@ from django.views import generic, View
 from django.urls import reverse
 from random import sample
 from .models import Course, Unit, Topic, QuizQuestion
-from .forms import CreateCourseForm, EditTopicForm
+from .forms import CourseForm, EditTopicForm
 from profiles.models import CustomUser
 
 class CourseList(generic.ListView):
@@ -21,12 +21,13 @@ class CourseDetail(View):
             'course' : course,
             'units' : units,
         }
+        extra_context = {"form_name": "Course"}
         return render(request, "course_detail.html", context)
 
 class CreateCourse(View):
     def get(self, request):
         if request.user.customuser.account_type == 'teacher':
-            form = CreateCourseForm()
+            form = CourseForm()
             context = {
                 'form' : form,
             }
@@ -34,7 +35,7 @@ class CreateCourse(View):
         else: return redirect('course_list')
     
     def post(self, request):
-        form = CreateCourseForm(request.POST)
+        form = CourseForm(request.POST)
         if form.is_valid():
             course = form.save(commit=False)
             course.author = request.user
@@ -45,6 +46,37 @@ class CreateCourse(View):
                 'form' : form,
             }
             return render(request, 'create_course.html', context)
+
+class EditCourse(View):
+    def get(self, request, course_slug):
+        course = get_object_or_404(Course, slug=course_slug)
+        if course.author != request.user:
+            return redirect('course_detail', course_slug=course.slug)
+        
+        form = CourseForm(instance=course)
+        edit_url = edit_url = reverse('edit_course', args=[course_slug])
+        context = {
+            "form" : form,
+            "course" : course,
+            "edit_url" : edit_url,
+        }
+        return render(request, 'edit_course.html', context)
+    
+    def post(self, request, course_slug):
+        course = get_object_or_404(Course, slug=course_slug)
+        if course.author != request.user:
+            return redirect('course_detail', course_slug=course.slug)
+        
+        form = CourseForm(request.POST, instance=course)
+        if form.is_valid():
+            form.save()
+            return redirect('course_detail', course_slug=course.slug)
+        
+        context = {
+            "form" : form,
+            "course" : course,
+        }
+        return render(request, 'edit_course.html', context)
 
 class UnitList(generic.ListView):
     model = Unit
@@ -88,7 +120,7 @@ class EditTopic(View):
         unit = get_object_or_404(Unit, slug=unit_slug, course=course)
         topic = get_object_or_404(Topic, slug = topic_slug, unit=unit)
         if topic.unit.course.author != request.user:
-            return HttpResponseForbidden("Only the author may edit this topic.")
+            return redirect('topic_detail', course_slug=topic.unit.course.slug, unit_slug=topic.unit.slug, topic_slug=topic.slug)
         
         form = EditTopicForm(instance=topic)
         edit_url = edit_url = reverse('edit_topic', args=[course_slug, unit_slug, topic_slug])
@@ -102,7 +134,7 @@ class EditTopic(View):
     def post(self, request, course_slug, unit_slug, topic_slug):
         topic = get_object_or_404(Topic, slug=topic_slug)
         if topic.unit.course.author != request.user:
-            return HttpResponseForbidden("Only the author may edit this topic.")
+            return redirect('topic_detail', course_slug=topic.unit.course.slug, unit_slug=topic.unit.slug, topic_slug=topic.slug)
         
         form = EditTopicForm(request.POST, instance=topic)
         if form.is_valid():
