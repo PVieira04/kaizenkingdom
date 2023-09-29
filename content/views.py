@@ -85,7 +85,7 @@ class DeleteCourse(View):
         context = {
             'course' : course
         }
-        if request.user.id == course.user.author.id:
+        if request.user.id != course.author.id:
             return redirect('course_detail', context)
         return render(request, 'delete_course.html', context)
 
@@ -94,7 +94,7 @@ class DeleteCourse(View):
         context = {
             'course' : course
         }
-        if request.user.id == course.user.author.id:
+        if request.user.id != course.author.id:
             return redirect('course_detail', context)
         course.delete()
         return redirect('course_list')
@@ -149,6 +149,51 @@ class AddUnit(View):
             }
             return render(request, 'add_unit.html', context)
 
+class EditUnit(View):
+    def get(self, request, course_slug, unit_slug):
+        unit = get_object_or_404(Unit, slug=unit_slug)
+        course = unit.course
+        if request.user.id == course.author.id:
+            form = UnitForm(instance=unit)
+            context = {
+                'form': form,
+                'unit': unit,
+                'course': course,
+            }
+            return render(request, 'edit_unit.html', context)
+        else:
+            return redirect('course_detail', course_slug=course.slug)
+
+    def post(self, request, course_slug, unit_slug):
+        unit = get_object_or_404(Unit, slug=unit_slug)
+        course = unit.course
+        form = UnitForm(request.POST, instance=unit)
+        if form.is_valid() and request.user.id == course.author.id:
+            unit = form.save(commit=False)
+            unit.save()
+            return redirect('unit_detail', course_slug=course.slug, unit_slug=unit.slug)
+        else:
+            context = {
+                'form': form,
+                'unit': unit,
+                'course': course,
+            }
+            return render(request, 'edit_unit.html', context)
+
+class DeleteUnit(View):
+    def get(self, request, course_slug, unit_slug):
+        unit = get_object_or_404(Unit, slug=unit_slug)
+        if request.user.id != unit.course.author.id:
+            return redirect('unit_detail', course_slug=unit.course.slug, unit_slug=unit.slug)
+        return render(request, 'delete_unit.html', {'unit': unit})
+
+    def post(self, request, course_slug, unit_slug):
+        unit = get_object_or_404(Unit, slug=unit_slug)
+        if request.user.id != unit.course.author.id:
+            return redirect('unit_detail', course_slug=unit.course.slug, unit_slug=unit.slug)
+        unit.delete()
+        return redirect('course_detail', course_slug=course_slug)
+
 class TopicList(generic.ListView):
     model = Topic
     template_name = 'topic_list.html'
@@ -202,13 +247,15 @@ class EditTopic(View):
 
 class DeleteTopic(View):
     def get(self, request, course_slug, unit_slug, topic_slug):
-        # Fetch the topic to be deleted and display a confirmation page
         topic = get_object_or_404(Topic, slug=topic_slug)
+        if request.user.id != topic.unit.course.author.id:
+            return redirect('topic_detail', course_slug=topic.unit.course.slug, unit_slug=topic.unit.slug, topic_slug=topic.slug)
         return render(request, 'delete_topic.html', {'topic': topic})
 
     def post(self, request, course_slug, unit_slug, topic_slug):
-        # Perform the deletion of the topic
         topic = get_object_or_404(Topic, slug=topic_slug)
+        if request.user.id != topic.unit.course.author.id:
+            return redirect('topic_detail', course_slug=topic.unit.course.slug, unit_slug=topic.unit.slug, topic_slug=topic.slug)
         topic.delete()
         return redirect('unit_detail', course_slug=course_slug, unit_slug=unit_slug)
 

@@ -4,7 +4,10 @@
     <div class="container">
         <h1 class="text-center">{{ unit.title }}</h1>
         <p class="text-center">{{ unit.description }}</p>
+        <a class="btn btn-primary" href="{% url 'edit_unit' course_slug=unit.course.slug unit_slug=unit.slug %}">Edit Unit</a>
+        <a class="btn btn-danger" href="{% url 'delete_unit' course_slug=unit.course.slug unit_slug=unit.slug %}">Delete Unit</a>
         <hr>
+        
         {% include 'topic_list.html' %}
     </div>
 {% endblock %}
