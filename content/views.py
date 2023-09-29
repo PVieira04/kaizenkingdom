@@ -78,6 +78,16 @@ class EditCourse(View):
         }
         return render(request, 'edit_course.html', context)
 
+class DeleteCourse(View):
+    def get(self, request, course_slug):
+        course = get_object_or_404(Course, slug=course_slug)
+        return render(request, 'delete_course.html', {'course': course})
+
+    def post(self, request, course_slug):
+        course = get_object_or_404(Course, slug=course_slug)
+        course.delete()
+        return redirect('course_list')
+
 class UnitList(generic.ListView):
     model = Unit
     template_name = 'unit_list.html'
