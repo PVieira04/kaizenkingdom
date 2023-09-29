@@ -1,3 +1,0 @@
-{% if request.user.id == course.author.id %}
-    <a class="btn btn-primary" href="{% url 'edit_course' course_slug=course.slug %}">Edit {{ form_name }}</a>
-{% endif %}

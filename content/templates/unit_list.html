@@ -1,20 +1,31 @@
 <h2 class="text-center">Units</h2>
 <div class="row">
-    <div class="col-md-8 card mb-4  mt-3 ">
-        <a href="{% url 'add_unit' course.slug %}" class="btn btn-primary">Add Unit</a>
-        <div class="card-body">
-            <!-- We want a for loop inside the tags to iterate through each comment in comments -->
-            {% for unit in units %}
-            <div class="comments text" style="padding: 10px;">
-                <a href="{% url 'unit_detail' course_slug=course.slug unit_slug=unit.slug %}">{{ unit.title }}</a>
+    <div class=" card mb-4 mt-3">
+        <div class="row">
+            <div class="col-12 text-center">
+                {% if request.user.id == course.author.id %}
+                <a href="{% url 'add_unit' course.slug %}" class="btn btn-primary text-center">Add Unit</a>
+                {% endif %}
             </div>
-            <!-- Our for loop ends here -->
-            {% endfor %}
         </div>
-    </div>
-    <div class="col-md-4 card mb-4  mt-3 ">
-        <div class="card-body">
-            <!-- For later -->
+        <div class="col-12 mt-3 left">
+            <div class="row">
+            {%for unit in units %}
+                <div class="col-md-4">
+                    <div class="card mb-4">
+                        <div class="card-body text-center course-item-card">
+                            <a href="{% url 'unit_detail' course_slug=course.slug unit_slug=unit.slug %}">
+                                <h2 class="card-title">Unit {{ unit.number }}: {{ unit.title }}</h2>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            {% if forloop.counter|divisibleby:3 %}
+            </div>
+            <div class="row">
+            {% endif %}
+            {% endfor %}
+            </div>
         </div>
     </div>
 </div>

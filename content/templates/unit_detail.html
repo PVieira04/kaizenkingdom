@@ -1,13 +1,19 @@
-{% extends "base.html" %}
+{% extends 'base.html' %} 
 
 {% block content %}
-    <div class="container">
-        <h1 class="text-center">{{ unit.title }}</h1>
-        <p class="text-center">{{ unit.description }}</p>
-        <a class="btn btn-primary" href="{% url 'edit_unit' course_slug=unit.course.slug unit_slug=unit.slug %}">Edit Unit</a>
-        <a class="btn btn-danger" href="{% url 'delete_unit' course_slug=unit.course.slug unit_slug=unit.slug %}">Delete Unit</a>
-        <hr>
-        
-        {% include 'topic_list.html' %}
+<div class="container">
+    <h1 class="text-center mt-3 mb-3">{{ unit.title }}</h1>
+    <div class="row">
+        <div class="col-12 text-center">
+            {% if request.user.id == course.author.id %}
+                <a class="btn btn-primary" href="{% url 'edit_unit' course_slug=unit.course.slug unit_slug=unit.slug %}">Edit Unit</a>
+                <a class="btn btn-danger" href="{% url 'delete_unit' course_slug=unit.course.slug unit_slug=unit.slug %}">Delete Unit</a>
+            {% endif %}
+        </div>
     </div>
-{% endblock %}
+    <div class="text-center mt-3">{{ unit.description | safe }}</div>
+    <hr>
+    {% include 'topic_list.html' %}
+</div>
+
+{% endblock content %}

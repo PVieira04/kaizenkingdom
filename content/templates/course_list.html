@@ -2,7 +2,15 @@
 
 {% block content %}
 <div class="container-fluid">
-    {% include 'includes/create_button.html' %}
+    <h1 class="text-center mt-3">Courses</h1>
+    <p class="text-center mt-3">Here you will find a list of all courses. Please browse at your leisure.</p>
+    <div class="row mt-3">
+        <div class="col-12 text-center">
+            {% if request.user.customuser.account_type == 'teacher' %}
+                <a class="btn btn-primary" href="{% url 'create_course' %}">Create Course</a>
+            {% endif %}
+        </div>
+    </div>
     <div class="row">
         <!-- Course Entries Column -->
         <div class="col-12 mt-3 left">
@@ -10,12 +18,11 @@
             {%for course in course_list %}
                 <div class="col-md-4">
                     <div class="card mb-4">
-                        <div class="card-body">
+                        <div class="card-body text-center course-item-card">
                             <a href="{% url 'course_detail' course_slug=course.slug %}" class="course-link">
                                 <h2 class="card-title">{{ course.title }}</h2>
                             </a>
                         </div>
-                        {% include 'includes/edit_button.html' %}
                     </div>
                 </div>
             {% if forloop.counter|divisibleby:3 %}

@@ -1,25 +1,31 @@
 <h2 class="text-center">Topics</h2>
 <div class="row">
-    <div class="col-md-8 card mb-4  mt-3 ">
-        <a href="{% url 'add_topic' course.slug unit.slug %}" class="btn btn-primary">Add Topic</a>
-        <div class="card-body">
-            <!-- We want a for loop inside the tags to iterate through each comment in comments -->
-            {% if user.is_authenticated %}
-            {% for topic in topics %}
-            <div class="comments text" style="padding: 10px;">
-                <a href="{% url 'topic_detail' course_slug=course.slug unit_slug=unit.slug topic_slug=topic.slug %}">{{ topic.title }}</a>
+    <div class=" card mb-4 mt-3">
+        <div class="row">
+            <div class="col-12 text-center">
+                {% if request.user.id == course.author.id %}
+                <a href="{% url 'add_topic' course.slug unit.slug %}" class="btn btn-primary">Add Topic</a>
+                {% endif %}
             </div>
-            <!-- Our for loop ends here -->
-            {% endfor %}
-            {% else %}
-            <p>You do not have permission to view this topic list. Please <a href="/profile/login/">log in</a> or 
-                <a href="/profile/signup/">sign up</a> if you do not have an account.</p>
-            {% endif %}
         </div>
-    </div>
-    <div class="col-md-4 card mb-4  mt-3 ">
-        <div class="card-body">
-            <!-- For later -->
+        <div class="col-12 mt-3 left">
+            <div class="row">
+            {%for topic in topics %}
+                <div class="col-md-4">
+                    <div class="card mb-4">
+                        <div class="card-body text-center course-item-card">
+                            <a href="{% url 'topic_detail' course_slug=course.slug unit_slug=unit.slug topic_slug=topic.slug %}">
+                                <h2 class="card-title">Topic {{ topic.number }}: {{ topic.title }}</h2>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            {% if forloop.counter|divisibleby:3 %}
+            </div>
+            <div class="row">
+            {% endif %}
+            {% endfor %}
+            </div>
         </div>
     </div>
 </div>
