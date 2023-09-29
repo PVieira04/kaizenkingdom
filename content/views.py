@@ -4,7 +4,7 @@ from django.views import generic, View
 from django.urls import reverse
 from random import sample
 from .models import Course, Unit, Topic, QuizQuestion
-from .forms import CourseForm, UnitForm, EditTopicForm
+from .forms import CourseForm, UnitForm, TopicForm
 from profiles.models import CustomUser
 
 class CourseList(generic.ListView):
@@ -115,6 +115,7 @@ class UnitDetail(View):
                 "unit" : unit,
                 "topics" : topics,
             }
+        print(f'topics: {topics}')
         return render(request, "unit_detail.html", context)
 
 class AddUnit(View):
@@ -212,6 +213,42 @@ class TopicDetail(View):
             }
         return render(request, "topic_detail.html", context)
 
+class AddTopic(View):
+    def get(self, request, course_slug, unit_slug):
+        course = get_object_or_404(Course, slug=course_slug)
+        unit = get_object_or_404(Unit, slug=unit_slug)
+        if request.user.id == course.author.id:
+            form = TopicForm()
+            context = {
+                'form' : form,
+                'course' : course,
+                'unit' : unit,
+            }
+            return render(request, 'add_topic.html', context)
+        else: return redirect('unit_detail', course_slug=course.slug, unit_slug=unit.slug)
+    
+    def post(self, request, course_slug, unit_slug):
+        course = get_object_or_404(Course, slug=course_slug)
+        unit = get_object_or_404(Unit, slug=unit_slug)
+        form = TopicForm(request.POST)
+        if form.is_valid() and request.user.id == course.author.id:
+            topic = form.save(commit=False)
+            topic.unit = unit
+            max_topic_number = Topic.objects.filter(unit=unit).aggregate(max_number=Max('number'))['max_number']
+            if max_topic_number is not None:
+                topic.number = max_topic_number + 1
+            else:
+                topic.number = 1
+            topic.save()
+            return redirect('unit_detail', course_slug=course.slug, unit_slug=unit.slug)
+        else:
+            context = {
+                'form' : form,
+                'course' : course,
+                'unit' : unit,
+            }
+            return render(request, 'add_topic.html', context)
+
 class EditTopic(View):
     def get(self, request, course_slug, unit_slug, topic_slug):
         course = get_object_or_404(Course, slug=course_slug)
@@ -220,7 +257,7 @@ class EditTopic(View):
         if topic.unit.course.author != request.user:
             return redirect('topic_detail', course_slug=topic.unit.course.slug, unit_slug=topic.unit.slug, topic_slug=topic.slug)
         
-        form = EditTopicForm(instance=topic)
+        form = TopicForm(instance=topic)
         edit_url = edit_url = reverse('edit_topic', args=[course_slug, unit_slug, topic_slug])
         context = {
             "form" : form,
@@ -234,7 +271,7 @@ class EditTopic(View):
         if topic.unit.course.author != request.user:
             return redirect('topic_detail', course_slug=topic.unit.course.slug, unit_slug=topic.unit.slug, topic_slug=topic.slug)
         
-        form = EditTopicForm(request.POST, instance=topic)
+        form = TopicForm(request.POST, instance=topic)
         if form.is_valid():
             form.save()
             return redirect('topic_detail', course_slug=topic.unit.course.slug, unit_slug=topic.unit.slug, topic_slug=topic.slug)

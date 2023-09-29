@@ -11,7 +11,7 @@ class UnitForm(forms.ModelForm):
         model = Unit
         fields = ['title', 'description']
 
-class EditTopicForm(forms.ModelForm):
+class TopicForm(forms.ModelForm):
     class Meta:
         model = Topic
         fields = ['title', 'content']

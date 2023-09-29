@@ -15,5 +15,6 @@
     {% endif %}
     <br>
     {{ topic.content | safe }}
+    <!--<a href="{% url 'quiz' course_slug=course.slug unit_slug=unit.slug topic_slug=topic.slug %}" class="btn btn-primary">Take Quiz</a>-->
 </div>
 {% endblock %}

@@ -47,6 +47,10 @@ class Topic(models.Model):
     class Meta:
         unique_together = ('unit', 'title')
         ordering = ['number']
+
+    def save(self, *args, **kwargs):
+        self.slug = slugify(self.title)
+        super().save(*args, **kwargs)
     
     def __str__(self):
         return f"{self.unit.course.title} - Unit {self.unit.number}: {self.unit.title} - Topic {self.number}: {self.title}"
