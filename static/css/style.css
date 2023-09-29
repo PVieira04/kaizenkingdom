@@ -46,6 +46,12 @@ body {
     background-color: #23BBBB;
 }
 
+
+.bg-light-orange {
+    background:#ff9900 90%;
+}
+  
+
 .author {
     color: white;
     margin: 4px;
@@ -139,4 +145,34 @@ body {
     color: #E84610;
     background: transparent;
     border: none;
+}
+
+.hero-image {
+    background-image: url('../images/pexels-julia-m-cameron-4144144.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 80vh; /* Adjust the height as needed */
+}
+
+.hero-content {
+    padding: 100px; /* Adjust the padding as needed */
+    text-align: center;
+    color: white;
+}
+
+.hero-content h1, .hero-content p {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    font-weight: 500;
+}
+
+.bg-cyan {
+    background-color: #5AC3B0;
+}
+
+.bg-dark-yellow {
+    background-color: #F7CD46;
+}
+
+.rouge {
+    color: #DE5935;
 }

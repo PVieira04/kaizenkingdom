@@ -1,1 +1,57 @@
 {% extends "base.html" %}
+
+{% block content %}
+    <!-- First Section: Hero -->
+    <section class="hero">
+        <div class="container-fluid p-0">
+            <div class="hero-image row align-items-center">
+                <div class="hero-content text-center text-white">
+                    <h1 class="display-4">Welcome to Our Learning Platform</h1>
+                    <p class="lead">Start your learning journey today.</p>
+                    {% if user.is_authenticated %}
+                    <a href="{% url 'course_list' %}" class="btn btn-primary btn-lg">Learn</a>
+                    {% else %}
+                    <a href="{% url 'account_signup' %}" class="btn btn-primary btn-lg">Register</a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Second Section: About -->
+    <section class="about">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <br><h1 class="text-center">About Us</h1><br>
+                    <p>Welcome to Kaizen Kingdom! Our mission is to empower learners by providing a comprehensive 
+                        and user-friendly Learning Management System. With our platform, you can explore and master 
+                        a wide range of subjects, unlocking your potential to learn anything you desire. Join us on 
+                        this exciting journey of knowledge and growth!</p><br>
+
+
+                    <p>Derived from the Japanese concept of continuous improvement, our project is built upon the 
+                        belief that learning is the catalyst for personal growth and advancement. By cultivating a 
+                        vibrant community of individuals who yearn to better themselves through knowledge, we 
+                        establish a dynamic "kingdom" of like-minded learners.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Third Section:  -->
+    <section class="custom-content">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <br><h1 class="text-center">Have Questions?</h1><br>
+                    <p>Contact us! Here at Kaizen Kingdom, we're all about bringing value 
+                        to our customers. If there's anything you would like to ask us about 
+                        or if you have any questions, please don't hesitate to reach out. 
+                        You can send us an email at <span class="rouge">info@kaizenkingdom.com</span>, and our team 
+                        will be happy to assist you.</p><br>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
