@@ -13,7 +13,6 @@ class Course(models.Model):
     description = models.TextField()
 
     def save(self, *args, **kwargs):
-        # Generate a slug from the title if it's not provided
         self.slug = slugify(self.title)
         super().save(*args, **kwargs)
 
@@ -30,6 +29,10 @@ class Unit(models.Model):
     class Meta:
         ordering = ['number']
         unique_together = ('course', 'title')
+    
+    def save(self, *args, **kwargs):
+        self.slug = slugify(self.title)
+        super().save(*args, **kwargs)
 
     def __str__(self):
         return f"{self.course.title} - Unit {self.number}: {self.title}"

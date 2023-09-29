@@ -6,6 +6,11 @@ class CourseForm(forms.ModelForm):
         model = Course
         fields = ['title', 'description']
 
+class UnitForm(forms.ModelForm):
+    class Meta:
+        model = Unit
+        fields = ['title', 'description']
+
 class EditTopicForm(forms.ModelForm):
     class Meta:
         model = Topic

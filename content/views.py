@@ -1,9 +1,10 @@
 from django.shortcuts import render, redirect, get_object_or_404
+from django.db.models import Max
 from django.views import generic, View
 from django.urls import reverse
 from random import sample
 from .models import Course, Unit, Topic, QuizQuestion
-from .forms import CourseForm, EditTopicForm
+from .forms import CourseForm, UnitForm, EditTopicForm
 from profiles.models import CustomUser
 
 class CourseList(generic.ListView):
@@ -36,7 +37,7 @@ class CreateCourse(View):
     
     def post(self, request):
         form = CourseForm(request.POST)
-        if form.is_valid():
+        if form.is_valid() and request.user.customuser.account_type == 'teacher':
             course = form.save(commit=False)
             course.author = request.user
             course.save()
@@ -81,10 +82,20 @@ class EditCourse(View):
 class DeleteCourse(View):
     def get(self, request, course_slug):
         course = get_object_or_404(Course, slug=course_slug)
-        return render(request, 'delete_course.html', {'course': course})
+        context = {
+            'course' : course
+        }
+        if request.user.id == course.user.author.id:
+            return redirect('course_detail', context)
+        return render(request, 'delete_course.html', context)
 
     def post(self, request, course_slug):
         course = get_object_or_404(Course, slug=course_slug)
+        context = {
+            'course' : course
+        }
+        if request.user.id == course.user.author.id:
+            return redirect('course_detail', context)
         course.delete()
         return redirect('course_list')
 
@@ -105,6 +116,38 @@ class UnitDetail(View):
                 "topics" : topics,
             }
         return render(request, "unit_detail.html", context)
+
+class AddUnit(View):
+    def get(self, request, course_slug):
+        course = get_object_or_404(Course, slug=course_slug)
+        if request.user.id == course.author.id:
+            form = UnitForm()
+            context = {
+                'form' : form,
+                'course' : course,
+            }
+            return render(request, 'add_unit.html', context)
+        else: return redirect('course_detail', course_slug=course.slug)
+    
+    def post(self, request, course_slug):
+        course = get_object_or_404(Course, slug=course_slug)
+        form = UnitForm(request.POST)
+        if form.is_valid():
+            unit = form.save(commit=False)
+            unit.course = course
+            max_unit_number = Unit.objects.filter(course=course).aggregate(max_number=Max('number'))['max_number']
+            if max_unit_number is not None:
+                unit.number = max_unit_number + 1
+            else:
+                unit.number = 1
+            unit.save()
+            return redirect('course_detail', course_slug=course.slug)
+        else:
+            context = {
+                'form' : form,
+                'course' : course,
+            }
+            return render(request, 'add_unit.html', context)
 
 class TopicList(generic.ListView):
     model = Topic
