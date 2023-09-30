@@ -7,13 +7,21 @@ from .models import Course, Unit, Topic, QuizQuestion
 from .forms import CourseForm, UnitForm, TopicForm
 from profiles.models import CustomUser
 
+
 class CourseList(generic.ListView):
+    """
+    A class based view representing the view for all courses
+    """
     model = Course
     template_name = 'course_list.html'
     paginate_by = 6
     extra_context = {"form_name": "Course"}
 
+
 class CourseDetail(View):
+    """
+    A class based view representing the view for only one course
+    """
     def get(self, request, course_slug, *args, **kwargs):
         course = get_object_or_404(Course, slug=course_slug)
         courses = Course.objects.all()
@@ -25,7 +33,11 @@ class CourseDetail(View):
         extra_context = {"form_name": "Course"}
         return render(request, "course_detail.html", context)
 
+
 class CreateCourse(View):
+    """
+    A class based view representing the view for creating courses
+    """
     def get(self, request):
         if request.user.customuser.account_type == 'teacher':
             form = CourseForm()
@@ -48,7 +60,11 @@ class CreateCourse(View):
             }
             return render(request, 'create_course.html', context)
 
+
 class EditCourse(View):
+    """
+    A class based view representing the view for editing courses
+    """
     def get(self, request, course_slug):
         course = get_object_or_404(Course, slug=course_slug)
         if course.author != request.user:
@@ -79,7 +95,11 @@ class EditCourse(View):
         }
         return render(request, 'edit_course.html', context)
 
+
 class DeleteCourse(View):
+    """
+    A class based view representing the view for deleting courses
+    """
     def get(self, request, course_slug):
         course = get_object_or_404(Course, slug=course_slug)
         context = {
@@ -99,12 +119,20 @@ class DeleteCourse(View):
         course.delete()
         return redirect('course_list')
 
+
 class UnitList(generic.ListView):
+    """
+    A class based view representing the view for all units of a particular course
+    """
     model = Unit
     template_name = 'unit_list.html'
     paginate_by = 6
 
+
 class UnitDetail(View):
+    """
+    A class based view representing the view for one unit of a particualr course
+    """
     def get(self, request, course_slug, unit_slug, *args, **kwargs):
         course = get_object_or_404(Course, slug=course_slug)
         unit = get_object_or_404(Unit, slug=unit_slug, course=course)
@@ -118,7 +146,11 @@ class UnitDetail(View):
         print(f'topics: {topics}')
         return render(request, "unit_detail.html", context)
 
+
 class AddUnit(View):
+    """
+    A class based view representing the view for adding a unit to a course
+    """
     def get(self, request, course_slug):
         course = get_object_or_404(Course, slug=course_slug)
         if request.user.id == course.author.id:
@@ -150,7 +182,11 @@ class AddUnit(View):
             }
             return render(request, 'add_unit.html', context)
 
+
 class EditUnit(View):
+    """
+    A class based view representing the view for editing a unit of a course
+    """
     def get(self, request, course_slug, unit_slug):
         unit = get_object_or_404(Unit, slug=unit_slug)
         course = unit.course
@@ -181,7 +217,11 @@ class EditUnit(View):
             }
             return render(request, 'edit_unit.html', context)
 
+
 class DeleteUnit(View):
+    """
+    A class based view representing the view for deleting a unit of a course
+    """
     def get(self, request, course_slug, unit_slug):
         unit = get_object_or_404(Unit, slug=unit_slug)
         if request.user.id != unit.course.author.id:
@@ -195,10 +235,15 @@ class DeleteUnit(View):
         unit.delete()
         return redirect('course_detail', course_slug=course_slug)
 
+
 class TopicList(generic.ListView):
+    """
+    A class based view representing the view for all topics of a unit
+    """
     model = Topic
     template_name = 'topic_list.html'
     paginate_by = 6
+
 
 class TopicDetail(View):
     def get(self, request, course_slug, unit_slug, topic_slug, *args, **kwargs):
@@ -213,7 +258,11 @@ class TopicDetail(View):
             }
         return render(request, "topic_detail.html", context)
 
+
 class AddTopic(View):
+    """
+    A class based view representing the view for adding a topic to a unit.
+    """
     def get(self, request, course_slug, unit_slug):
         course = get_object_or_404(Course, slug=course_slug)
         unit = get_object_or_404(Unit, slug=unit_slug)
@@ -249,7 +298,11 @@ class AddTopic(View):
             }
             return render(request, 'add_topic.html', context)
 
+
 class EditTopic(View):
+    """
+    A class based view representing the view for editing a topic.
+    """
     def get(self, request, course_slug, unit_slug, topic_slug):
         course = get_object_or_404(Course, slug=course_slug)
         unit = get_object_or_404(Unit, slug=unit_slug, course=course)
@@ -282,7 +335,11 @@ class EditTopic(View):
         }
         return render(request, 'edit_topic.html', context)
 
+
 class DeleteTopic(View):
+    """
+    A class based view representing the view for deleting a topic.
+    """
     def get(self, request, course_slug, unit_slug, topic_slug):
         topic = get_object_or_404(Topic, slug=topic_slug)
         if request.user.id != topic.unit.course.author.id:
@@ -296,7 +353,11 @@ class DeleteTopic(View):
         topic.delete()
         return redirect('unit_detail', course_slug=course_slug, unit_slug=unit_slug)
 
+
 class Quiz(View):
+    """
+    A class based view representing the view for quiz questions.
+    """
     def get(self, request, course_slug, unit_slug, topic_slug):
         questions = QuizQuestion.objects.filter(topic__slug=topic_slug)
 
