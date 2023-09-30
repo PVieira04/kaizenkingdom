@@ -2,6 +2,8 @@
 
 Website now [LIVE](https://kaizen-kingdom-7933fecd6f94.herokuapp.com/)! Hosted on Heroku.
 
+This is version 1.0 of the platform. Please read on to find out about upcoming features.
+
 Welcome to Kaizen Kingdom! Our mission is to empower learners by providing a comprehensive and user-friendly Learning Management System. With our platform, you can explore and master a wide range of subjects, unlocking your potential to learn anything you desire. Join us on this exciting journey of knowledge and growth!
 
 Derived from the Japanese concept of continuous improvement, our project is built upon the belief that learning is the catalyst for personal growth and advancement. By cultivating a vibrant community of individuals who yearn to better themselves through knowledge, we establish a dynamic "kingdom" of like-minded learners.
@@ -32,34 +34,6 @@ In order to check-out multiple items in one click as a user, I can add items to 
 I want my student users to have this kind of experience when they log on to Kaizen Kingdom.
 
 When the student lands on the main page, They can click on the login button, taking them to the login page. They will use their details to log in and will be welcomed by the courses they are currently enrolled on. A student can click on a course and they will be presented with the course page which include all modules. From there they can see their progress in all modules and click on a module to begin learning. Once they do, they will be taken to a page where they are shown details on the module, with what they will learn etc. Then they will be able to see some worked examples and then be presented with questions.
-
-## Mascot
-
-Introducing a mascot to this project can serve as a powerful symbol for this educational initiative. Here is why I think having a mascot is a fantastic idea:
-
-1. Emotional Connection: A mascot instantly connects with people on an emotional level. It's like having a friendly face that everyone can relate to and feel comfortable with.
-
-2. Brand Identity Boost: A well-designed mascot becomes the visual representation of our project. It helps us stand out from the crowd, making us memorable and recognizable.
-
-3. Fun and Engaging: A mascot adds a lots of fun to the learning experience! It brings an element of playfulness and excitement that keeps learners engaged and motivated.
-
-4. Positive Learning Environment: The mascot sets a positive tone for learning. It creates a welcoming atmosphere, encourages participation, and boosts morale among learners.
-
-5. Clear Communication: The mascot can become the project's spokesperson, delivering messages and information in a relatable and engaging way. It helps simplify complex concepts and makes learning more accessible.
-
-Having a mascot is all about injecting personality and charm into the project. It adds that extra spark that makes learning enjoyable and memorable for everyone involved.
-
-I have chosen the charming Kitsune as the mascot for our project. Drawing inspiration from the Japanese mythological fox renowned for its wisdom and intelligence, our mascot embodies the spirit of learning and growth. Now, let's decide on the perfect name from our two options: Kaiki and Kaiko. Here's a breakdown of each name:
-
-Kaiki: This name creatively combines the first syllables from our project's title, capturing its uniqueness and emphasizing our commitment to continuous improvement. To symbolize the mysterious and enchanting nature of our mascot, we can associate the kanji 怪奇, meaning "mysterious" or "strange," with the name Kaiki.
-
-Kaiko: Similarly derived, the name Kaiko incorporates the "ko" syllable from the Japanese word for "kingdom" (oukoku). It represents the grandeur and scale of our project, while maintaining a touch of Japanese influence. The kanji 開光, which signifies "opening" and "enlightenment," perfectly aligns with our mascot's transformative power and the essence of education.
-
-To ensure our decision resonates with our target audience, we will conduct market research, gathering valuable insights and preferences. Additionally, considering the gender of our mascot, if relevant, can further enhance its appeal and connection with our learners.
-
-By combining market feedback, personal preference, and the desired branding objectives, we can confidently select the name that best captures the essence of our educational journey and creates a lasting impression.
-
-Decision: to be determined.
 
 ## Application of Product
 
@@ -140,28 +114,6 @@ Since Code Institute provide resources to learn the Django backend framework, it
 
 7. Mature and Battle-Tested: Django has been around for many years and has been extensively used in production by numerous projects and organizations. Its maturity and battle-tested nature provide me with confidence in its stability, performance, and reliability for my LMS application.
 
-### React Frontend
-
-I have decided to employ the React frontend framework for my Learning Management System (LMS) project, and I believe it offers several compelling reasons to support this decision. I have personally used React before in other frontend applications but in addition, here is my rationale for using React:
-
-1. Component-Based Architecture: React's component-based architecture allows me to break down the user interface of my LMS into modular and reusable components. This approach enhances code organization, promotes reusability, and simplifies maintenance and updates.
-
-2. Efficient and Reactive Rendering: React's virtual DOM and efficient diffing algorithm optimize the rendering process. By updating only the necessary components when there are changes, React ensures fast and responsive user interfaces, which is crucial for delivering a smooth learning experience in my LMS.
-
-3. Unidirectional Data Flow: React follows a unidirectional data flow pattern, making it easier to manage the state and data flow within my LMS application. With the help of state management libraries like Redux or Context API, I can ensure consistency and predictability in handling data and state changes.
-
-4. Rich Ecosystem and Community: React has a thriving ecosystem and a large community of developers. This means there is extensive documentation, numerous libraries, and a wealth of resources available to assist me during the development process. I can leverage existing solutions, components, and patterns to accelerate my LMS project's development and ensure its success.
-
-5. Reusability and Code Maintainability: React's component-based approach and emphasis on reusability enable me to build reusable UI elements and encapsulate complex functionality into self-contained components. This reusability simplifies code maintenance, improves readability, and reduces the likelihood of introducing bugs or inconsistencies.
-
-6. Declarative and Readable Syntax: React's declarative syntax makes it easier to understand and reason about the UI logic. The JSX syntax, which combines JavaScript and HTML-like syntax, allows me to write expressive and readable code, enhancing collaboration among developers and making it easier to onboard new team members.
-
-7. Support for Single-Page Applications: React is well-suited for building single-page applications (SPAs) due to its efficient rendering, routing capabilities, and state management options. By adopting React for my LMS frontend, I can create a seamless and interactive user experience, with smooth transitions between different sections and pages of the application.
-
-8. Responsive UI with React Native: If I decide to extend my LMS to mobile platforms in the future, React Native, a framework built on top of React, allows for the development of native mobile applications using JavaScript. This potential for code sharing between the web and mobile platforms can save time and effort in maintaining consistent functionality and branding across different devices.
-
-In conclusion, my choice to utilize the React frontend framework for my LMS project is driven by its component-based architecture, efficient rendering, unidirectional data flow, extensive ecosystem and community support, reusability, code maintainability, declarative syntax, support for SPAs, and the potential for mobile application development through React Native. These factors make React an excellent choice for building the user interface of my LMS, ensuring an engaging, interactive, and scalable learning experience for my users.
-
 ## Project Milestones
 
 1. CRUD functionality where cards can be read, edited, created and deleted.
@@ -199,10 +151,73 @@ In conclusion, my choice to utilize the React frontend framework for my LMS proj
 
 ### Strategy
 
+For the strategy, I explored various potential features for the LMS and attempted to assess the importance and viability of their implementation.
+
+Potential Features:
+
+- Create Course, Unit and Topics
+- Read Topics
+- Update Courses with new content
+- Delete Courses
+- Registration and Login
+- Permissions for Students and Teachers
+- Track Student progress
+- Allow Teachers to view Student progress
+- Allow Teachers to create quizzes for their own course
+- Complete Topics by passing a quiz
+
+| Opportunity / Problem | Importance | Viability | Difficulty |
+|---|:---:|:---:|:---:|
+| Create Course, Units, Topics | 5 | 5 | 1 |
+| Read Topics | 5 | 5 | 1 |
+| Update Course content | 5 | 5 | 1 |
+| Delete Course content | 5 | 5 | 1 |
+| Registration and Login | 5 | 5 | 3 |
+| Permissions for Visitors, Students, Teachers | 4 | 5 | 2 |
+| Track Student progress | 2 | 3 | 2 |
+| Allow Teachers to view Student progress | 2 | 3 | 2 |
+| Allow Teachers to create quizzes | 3 | 4 | 2 |
+| Complete Topics by passing a quiz | 3 | 4 | 2 |
+
+Comparing the scores of Importance and Viability tells me I can implement all these features.
+
 ### Scope
+
+The Scope of the project is determined based on the difficulty of implementation. As the difficulty of all features is low, they can be implemented.
 
 ### Structure
 
+This is the ideal structure of the database:
+
+![Database](/static/images/database.png)
+
+This database is intended to be implemented in a modular manner with different features being addes with each release of the project.
+
 ### Skeleton
 
+The Skeleton gives us and idea of what the frontend should look like once the project is complete. These were the wireframes generated:
+
+![Home - Desktop - Guest](/static/images/home-desktop-guest.png)
+![Home - Desktop - User](/static/images/home-desktop-user.png)
+![Dashboard - Desktop - Student](/static/images/dashboard-desktop-student.png)
+![Create Course - Desktop](/static/images/create-dourse-desktop.png)
+![Photography - Desktop](/static/images/photography-desktop.png)
+![Photography Topic - Desktop](/static/images/photography-topic-desktop.png)
+![Photography Topic Edit - Desktop](/static/images/photography-topic-edit-desktop.png)
+![Photography Topic New - Desktop](/static/images/photography-topic-new-desktop.png)
+![Subject - Desktop - Student](/static/images/subject-desktop-student.png)
+![Unit - Deskto - Student](/static/images/unit-desktop-student.png)
+![Topic - Desktop - Student](/static/images/topic-desktop-student.png)
+![Topic - Desktop - Student - Modal](/static/images/topic-desktop-student-modal.png)
+![Worksheet - Desktop - Student](/static/images/worksheet-desktop-student.png)
+
 ### Surface
+
+Several aspects of the surface were given some deep thought. One idea that was landed on early was the colour scheme. For this project, I was inspired by amourliquide.com with their combination of yellow, cyan and red. Specifically, the colours are as follows:
+
+- yellow: #F7CD46
+- cyan: #5AC3B0
+- red: #DE5935
+
+As for fonts, I wanted to go for a modern style and so adopted a sans-serif style.
+
