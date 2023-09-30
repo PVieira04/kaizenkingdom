@@ -200,7 +200,7 @@ The Skeleton gives us and idea of what the frontend should look like once the pr
 ![Home - Desktop - Guest](/static/images/home-desktop-guest.png)
 ![Home - Desktop - User](/static/images/home-desktop-user.png)
 ![Dashboard - Desktop - Student](/static/images/dashboard-desktop-student.png)
-![Create Course - Desktop](/static/images/create-dourse-desktop.png)
+![Create Course - Desktop](/static/images/create-course-desktop.png)
 ![Photography - Desktop](/static/images/photography-desktop.png)
 ![Photography Topic - Desktop](/static/images/photography-topic-desktop.png)
 ![Photography Topic Edit - Desktop](/static/images/photography-topic-edit-desktop.png)
@@ -221,3 +221,120 @@ Several aspects of the surface were given some deep thought. One idea that was l
 
 As for fonts, I wanted to go for a modern style and so adopted a sans-serif style.
 
+## Features
+
+### Home
+
+Home page with about section
+
+This is what users will see when they first navigate to the home page of the website. Everyone will see the hero image, tagline and call to action button first. This is to promt the user into doing what we want them to, which is to register.
+
+![Home Guest View](/static/images/home-guest-view.png)
+
+If we were to see what a user would see when they navigate to the home page, it would looke like this:
+
+![Home Teacher and Student View](/static/images/home-admin-view.png)
+
+Not much different but we want the user to do something else; that is, to learn. The button now takes them to the LSM section of the site where they can browse courses.
+
+### Register and Login
+
+As of right now, when a user registers with the site, they gain a unique username and by default get labelled as a student. If students wish to change their status to a teacher, they would have to ask a superuser to do it. The registration, login and sigout are handled by allauth:
+
+![Register Account](/static/images/register-account.png)
+
+![Login Page](/static/images/log-in.png)
+
+![Admin Sign Out](/static/images/admin-sign-out.png)
+
+As per standard allauth implementation, the password is set up so that no one can see it as it is being typed.
+
+### Profile Page
+
+Users can view their account information and choose to edit their display name on the site. At this moment this feature is only useful for teacher accounts, as this is what will show when a user navigates to a course that they have created. Each course will say who the author of the course is using their display name.
+
+![Profile Information](/static/images/profile-info.png)
+
+![Profile Update](/static/images/update-profile.png)
+
+### Learn - Create
+
+When teachers access the Course List page, they will be presented with a button to create a course, along with a list of all created courses.
+
+![Course List Teacher View](/static/images/course-list-admin.png)
+
+Using this button will take them to the Course creation page.
+
+![Create Course](/static/images/create-course.png)
+
+Once the user submits the form, they will be taken to the newly created page.
+
+![New Course Page](/static/images/new-course-page.png)
+
+On this screen, only the author of the course can see the buttons to edit, delete and add units. The author can then add units to the course.
+
+![Add Unit Page](/static/images/add-unit-page.png)
+
+Once the author submits the form, they will be taken back to the course page, allowing the user to add all units in one go.
+
+![Show New Unit](/static/images/course-list-show-new-unit.png)
+
+The author can then click on a particular Unit to add topics to if they wish.
+
+![New Unit Page](/static/images/new-unit-page.png)
+![Add Topic Page](/static/images/add-topic-page.png)
+
+### Learn - Read
+
+Once a user is logged in, they will be able to view all courses created by any teacher account.
+
+![Course List Student View]
+
+Users can navigate to any one to look at the inner details of each course, which will show the different units that course has to offer along with a description of the course. The buttons for create/add, edit and delete are no longer visible (for student account holders) and their function is completely forbidden in the backend.
+
+![Course Detail Student View]
+![Unit Detail Student View]
+![Topic Detail Student View]
+
+### Learn - Update and Delete
+
+When teachers are logged in and are looking at any content they are the author of, they will be able to see buttons to edit or delete course content. If clicked on, they will be taken to another page to confirm the changes they wish to make to their course. This is demonstrated below:
+
+![Edit Course](/static/images/edit-course.png)
+![Edit Unit](/static/images/edit-unit.png)
+![Edit Topic](/static/images/edit-topic.png)
+![Delete Confirm](/static/images/delete-confirm.png)
+
+If the cancel button is clicked on any one of these, it will take them to the course content item they were on before they clicked on 'edit' or 'delete'. For example, if they were on the Unit page before they treid to edit it, the cancel button will take them back to the Unit page.
+
+### Ucoming Features
+
+Eventually the system should be a system that allows student users to progress in courses and not be permitted to view a particular course unless they have completed certain requirements. Some topics will have more than one topic requirement, and in order to clear the requirements, the user would have to complete some sort of quiz to show proof of competence.
+
+A student tracking system is also an upcoming feature. Students can add particular teacher users as 'their teacher' so as to allow them access to their progress.
+
+The database design for these features is complete, as can be seen earlier in this document. While these are not difficult features to implement, they do take time, so I was not able to offer them for the 1.0 release.
+
+## Testing
+
+### Manual Testing - User
+
+For the manual testing, I pretended to be a teacher and I attempted to use the site how it is intended they would. In my testing, I found that some things I failed to implement led to UX issues. For example, when someone is on a Unit Page, there is no easy way to go back up one level to the Course Page that unit belongs to. This can lead to all sorts of problems in UX design. I can fix this by implementing a button allowing users to go back up a level.
+
+### Manual Testing - Browser
+
+
+
+### Automated Testing
+
+### Known Issues
+
+## Credits
+
+- Thank you to Code Institute for offering great course content allowing me to implement my knowledge and create this project.
+- Thank you to Sean of Code Institute in particular for your weekly advice when it came to coding Django. Your advice was invaluable and my project would be very different if I had not received your advice and teachings.
+- Thank you to Can Sucullu for mentoring me on this project. You have kept me accountable for the project and always give fantastic advice when it came to linking my experience on the project with a job in software engineering.
+- Thank you to Google for your free document tools. It allowed me to organise my information in the planning stages of my course.
+- Thank you to dbdiagram.io for your tool in designing my database. As a first time database designer, it made the process quick and painless.
+- Thank you to Balsamiq for your wireframing tool. It allowed me to quickly get my thoughts down on paper when it came to how the website would look.
+- Thank you to designshack.net and amourliquide.com for inspiring me for the colour scheme for the project.
