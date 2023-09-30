@@ -221,6 +221,19 @@ Several aspects of the surface were given some deep thought. One idea that was l
 
 As for fonts, I wanted to go for a modern style and so adopted a sans-serif style.
 
+## Agile Tools
+
+For my agile tooling, I utilised my template user story and came up a list of user stories for this project. Not only that, But I also created Acceptance Criteria and Tasks for each User Story:
+
+Each sheet represents a different theme. I had two themes for this project - Account Management, and Content Management.
+
+![Task Planner - Account Management](/static/images/task-planner-account-management.png)
+![Task Planner - Content Management](/static/images/task-planner-content-management.png)
+
+Once I did that, I used GitHub's Kanban board in order to manage my user stories:
+
+![Kanban Board](/static/images/kanban-board.png)4
+
 ## Features
 
 ### Home
@@ -323,18 +336,26 @@ For the manual testing, I pretended to be a teacher and I attempted to use the s
 
 ### Manual Testing - Browser
 
-
+Tested on Chromse and Firefox browsers. Also tested on Android smartphone (Chrome browser).
 
 ### Automated Testing
 
+Some automated testing done. Specifically on the models section of profiles app.
+
+![Automated Testing](/static/images/automated-testing.png)
+
 ### Known Issues
+
+Parts of the site can still be accessed by non-authenticated users. This can be fixed with code in the views of each app.
 
 ## Credits
 
 - Thank you to Code Institute for offering great course content allowing me to implement my knowledge and create this project.
 - Thank you to Sean of Code Institute in particular for your weekly advice when it came to coding Django. Your advice was invaluable and my project would be very different if I had not received your advice and teachings.
 - Thank you to Can Sucullu for mentoring me on this project. You have kept me accountable for the project and always give fantastic advice when it came to linking my experience on the project with a job in software engineering.
+- Thank you to the tutor team at Code Institute as a whole for helping with bugfixes.
 - Thank you to Google for your free document tools. It allowed me to organise my information in the planning stages of my course.
 - Thank you to dbdiagram.io for your tool in designing my database. As a first time database designer, it made the process quick and painless.
 - Thank you to Balsamiq for your wireframing tool. It allowed me to quickly get my thoughts down on paper when it came to how the website would look.
 - Thank you to designshack.net and amourliquide.com for inspiring me for the colour scheme for the project.
+- Thank you to Julia M Cameron of pexels.com for providing the high quality stock photo on my home page.
