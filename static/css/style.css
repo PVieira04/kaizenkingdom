@@ -156,7 +156,7 @@ a:hover {
 }
 
 .hero-image {
-    background-image: url('../images/pexels-julia-m-cameron-4144144.jpg');
+    background-image: url('https://res.cloudinary.com/dxfpmk5ir/image/upload/v1696064332/static/images/pexels-julia-m-cameron-4144144.2928b67c6944.jpg');
     background-size: cover;
     background-position: center;
     height: 80vh; /* Adjust the height as needed */
